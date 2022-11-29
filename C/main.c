@@ -39,7 +39,7 @@ int main()
 	uint8_t cmd2[]={0x20,0x80,0x40};
 	uint8_t cmd3[]={0x45,0x80};
     uint8_t clear1[]={0x00};
-	uint8_t data1[]={0x1F,0x05,0x07};
+	uint8_t data1[]={0x1F,0x05,0x1F,0x1F,0x1F,0x1F};
     // Ports
     spi_inst_t *spi = spi0;
 
@@ -82,7 +82,7 @@ int main()
 	clear(spi,cs_pin,clear1,1);
 	
 	gpio_put(cmd_pin, 1);
-    reg_write(spi,cs_pin, data1, 3);		
+    reg_write(spi,cs_pin, data1, 6);		
 	
 	gpio_put(cmd_pin, 0);
 	reg_write(spi,cs_pin, cmd3, 2);
